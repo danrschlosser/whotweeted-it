@@ -16,12 +16,12 @@ button {
 	position: relative;
 }
 
-.working_title > p {
+.tester {
 	text-align: center;
-	font-size: 1.1em;
+	font-size: 4.5em;
 	top: 20px;
 	font-style: italic;
-	margin-top: 60px;
+	padding-top: 0px;
 }
 
 .tweet {
@@ -30,6 +30,7 @@ button {
 	margin-right: 20%;
 	background-color: rgba(200,235,255,0.6);
 	text-align: center;
+	border-bottom: 80px;
 	border-radius: 10px;
 	border-color:rgba(0,0,0,0);
 }
@@ -154,11 +155,15 @@ footer a {
 }
 
 .buffer {
-	height: 100px;
+	height: 40px;
 }
 
 .buffer-v2 {
 	height: 28px;
+}
+
+.buffer-v3 {
+	height: 40px;
 }
 
 .row > .large-12 {
