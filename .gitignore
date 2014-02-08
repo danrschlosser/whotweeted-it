@@ -1,0 +1,10 @@
+*.pyc
+# don't include third-party dependencies.
+lib/
+!lib/README.md
+.DS_Store
+
+<<<<<<< HEAD
+=======
+auth/tokens.py
+>>>>>>> 07fd367... backend

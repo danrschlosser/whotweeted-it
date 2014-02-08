@@ -1,0 +1,170 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	background: white url("../img/p6.png") repeat;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.main {
+	min-height: 100%;
+	position: relative;
+}
+
+.working_title > p {
+	text-align: center;
+	font-size: 1em;
+	top: 20px;
+	font-style: italic;
+	margin-top: 60px;
+}
+
+.tweet {
+	height: 30%;
+	margin-left: 20%;
+	margin-right: 20%;
+	background-color: rgba(200,235,255,0.6);
+	text-align: center;
+	border-radius: 10px;
+	border-color:rgba(0,0,0,0);
+}
+
+.panel p {
+	font-size: 2em;
+}
+
+.profpic, .username {
+	display: inline-block;
+}
+
+.candidate span {
+	font-style: italic;
+	color: #3560A1;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1.3em;
+	padding-left: 10px;
+}
+
+.panel{
+	background-color: rgba(200,235,255,0.6);
+	border-radius: 10px;
+	border-color:rgba(0,0,0,0);
+}
+
+.large-1 {
+	background-color: rgba(1,1,1,0)
+}
+
+
+.candidate img{
+	width: 48px;
+	height: 48px;
+	border-radius: 5px
+}
+
+.top-bar{
+	background-color: transparent;
+}
+
+.top-bar-section{
+	border-radius: 0 0 5px 0;
+}
+
+.panel p{
+	font-style: italic;
+	font-size: 1.4em;
+	color: #3560A1;
+}
+
+.candidate {
+	width: 100%;
+}
+
+.candidate:hover {
+	background-color: #7BCFFF;
+}
+
+.row, .panel {
+	font-size: 1.2em;
+}
+
+.row {
+	position: center;
+}
+
+.row-highscore p {
+	font-size: 1.5em;
+	font-weight: 700;
+	text-align: center;
+	padding: 4px;
+	color: #3E7F68;
+	border-radius: 5px;
+}
+
+.row-highscore{
+	text-align: center;
+	left: 0;
+	right: 0;
+	bottom: 40px;
+}
+
+footer {
+	position: absolute;
+	font-size: 0.9em;
+	color: #3560A1;
+	text-decoration: none;
+	bottom: 7px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+footer a {
+	padding: 0 .5em;
+	font-size: 0.9em;
+	color: #3560A1;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: bottom;
+}
+
+.bottom-row a:hover {
+	text-decoration: underline;
+	color: #739CFF
+}
+
+.buffer {
+	height: 100px;
+}
+
+.buffer-v2 {
+	height: 28px;
+}
+
+.row > .large-12 {
+
+	padding: 10px 20px 0px;
+	width: 100%;
+	max-width: 800px;
+	background-color: #ddd;
+	border-radius: 10px;
+	left: 0;
+	right: 0;
+	line-height: 1.5;
+}
+
+.about-page {
+	margin: 40px 50px;
+}
+
+.large-12 > p {
+	text-align: center;
+}
+
+.visionaries {
+	padding: 0 200px 0;
+}
