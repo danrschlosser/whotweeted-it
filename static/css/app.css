@@ -39,6 +39,10 @@ button {
 	font-size: 2em;
 }
 
+.centered {
+	text-align: center;
+}
+
 .profpic, .username {
 	display: inline-block;
 }

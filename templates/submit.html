@@ -1,26 +1,30 @@
 {% extends "foundation.html" %}
 {% block title %} Dang. | {{ super() }} {% endblock %}
 {% block body %}
+<script type="text/javascript">
+  var score = {{score}};
+</script>
 <div class="main">
-<div class="row submit-page">
-	<div class="medium-10 medium-centered columns">
-	<h3>Aw, nuts.</h3>
-	<p>You achieved a streak of {{score}}.</p>
-	<form>
-  		<div class="row collapse">
-    		<div class="medium-10 columns">
-     		 <label>Enter your name for the leaderboards!
-       		 <input type="text" placeholder="Your name goes here. Don't be profane, dawg." />
-     		 </label>
-    		</div>
-        <div class="medium-2 columns">
-          <button class="post" type="submit">Search</button>
+  <div class="row submit-page">
+   <div class="medium-10 medium-centered columns">
+     <h3>Aw, nuts.</h3>
+     <p>You achieved a streak of {{score}}.</p>
+     <form>
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" placeholder="Enter your name for the leaderboards!" name="user_name" id="user_name" required/>
         </div>
-  		</div>
-  	</form>
-  	<!--****SHARE ON FB????*****-->
-	<a href="/" class="button">Try again?</a>
-</div>
-</div>
+        <div class="small-2 columns">
+          <button class="post postfix" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+    <!--****SHARE ON FB????*****-->
+    <div class="row">
+      <div class="medium-8 medium-centered columns centered">
+        <a href="/" class="button">Try again?</a>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

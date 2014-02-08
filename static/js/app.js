@@ -1,4 +1,20 @@
 $().ready(function() {
+	$("form").submit(function(e) {
+		e.preventDefault();
+		var val = $("#user_name").val();
+		console.log(val, score);
+		console.log("/post/"+val+"/"+score)
+
+		$.post("/post/"+val+"/"+score, function() {
+			console.log("bye!");
+			var leaderboard = function() {
+				window.location = "/leaderboard";
+			}
+			setTimeout(leaderboard, 500);
+
+		});
+	});
+
 	$(".option").click(function(e) {
 		e.preventDefault();
 		clickedName = $(this).data("candidate-name");
@@ -24,7 +40,7 @@ $().ready(function() {
 				window.location = "/donegoofed/" + (score);
 			}
 		}
-        setTimeout(leave, 1000); // check again in a second
+        setTimeout(leave, 500); // check again in a second
 
 	});
 });
