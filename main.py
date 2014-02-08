@@ -31,7 +31,7 @@ def cont(score):
 
 @app.route('/donegoofed/<score>')
 def goofed(score):
-	return redirect(url_for('submit', messages=json.dumps({"score": 0})))
+	return redirect(url_for('submit', messages=json.dumps({"score": score})))
 
 @app.route('/submit')
 def submit():
