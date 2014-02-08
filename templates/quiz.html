@@ -1,6 +1,11 @@
 {% extends "foundation.html" %}
 {% block title %} {{ super() }} {% endblock %}
 {% block body %}
+<script type="text/javascript">
+  var correctUser = "{{data.correctUser}}";
+  var score = {{score}};
+</script>
+
 <div class="main">
 	<nav class="top-bar" data-topbar>
   <section class="top-bar-section">
@@ -11,59 +16,51 @@
 </nav>
 	
 	<div class="row"><div class="panel tweet">
- 		<p>SDSFD
-      SDFF
-      SDFSDF 
-      SDFh
-      charlie
-      SDF phgheen
-      FDSJ 
-      SDFJ</p>
+ 		<p>{{data.tweet}}</p>
 	</div>
 
 	<div class="working_title">
-		<p class="tester">Who tweeted that shit???</p>
+		<p class="tester">Who tweeted it?</p>
 	</div>
 </div>
 
 	<div class="row">
-  		<div class="medium-5 medium-offset-1 columns">
-  			<div class="panel candidate">
-  				<!--Insert candidate prof pic here-->
-  					<img src="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg" alt="Candidate 1 picture">
-	  				<span>Candidate 1</span>
-  			</div>
+    {% for candidate in data.candidates if loop.index <= 2 %}
+
+  		<div class="medium-5 
+      {% if loop.index % 2 = 1 %} medium-offset-1 {% endif %}
+      columns">
+  			<a class="option" href="#" data-candidate-name"{{candidate.display_name}}"><div class="panel candidate">
+  					 <img src="{{candidate.image}}">
+	  		 		<span>{{candidate.display_name}}</span>
+  			 </div>
+        </a>
   		</div>
- 		<div class="medium-5 columns">
- 			<div class="panel candidate">
- 				<img src="https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG" alt="Candidate 2 picture">
- 				<span>Candidate 2</span>
- 			</div>
- 		</div>
+
+ 		{% endfor %}
     <div class="medium-1 columns"></div>
 	</div>
 
 	<div class="row">
-  		<div class="medium-5 medium-offset-1 columns">
-  			<div class="panel candidate">
-  				<!--Insert candidate prof pic here-->
-  					<img src="http://thewalruslife.com/wp-content/uploads/2013/09/Homestar_twitter_icon_689.png" alt="Candidate 1 picture">
-	  				<span>Candidate 3</span>
+    {% for candidate in data.candidates if loop.index > 2 %}
+  		<div class="medium-5 
+      {% if loop.index % 2 = 1 %} medium-offset-1 {% endif %}
+      columns">
+  			<a class="option" href="#" data-candidate-name="{{candidate.display_name}}"><div class="panel candidate">
+  					<img src="{{candidate.image}}">
+	  				<span>{{candidate.display_name}}</span>
   			</div>
+        </a>
   		</div>
- 		<div class="medium-5 columns">
- 			<div class="panel candidate">
- 				<img src="http://www.absoluteanime.com/pokemon/brock.jpg" alt="Candidate 2 picture">
- 				<span>Candidate 4</span>
- 			</div>
-    </div>
+ 		
+    {% endfor %}
  		<div class="medium-1 columns"></div>
 	</div>
 
   <div class="buffer"></div>
 
-	<div class="row"><div class="row-highscore">
-        <p>Current streak:</p>
+	<div class="row"><div class="row-score">
+        <p class="scorebar">Current streak: {{score}}</p>
 	</div></div>
 
   <div class="buffer-v2"></div>
