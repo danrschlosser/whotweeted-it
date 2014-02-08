@@ -3,20 +3,23 @@
 {% block body %}
 <div class="main">
 <div class="row submit-page">
-	<div class="large-12 columns">
+	<div class="medium-10 medium-centered columns">
 	<h3>Aw, nuts.</h3>
 	<p>You achieved a streak of {{score}}.</p>
 	<form>
-  		<div class="row">
-    		<div class="medium-10 medium-centered columns">
+  		<div class="row collapse">
+    		<div class="medium-10 columns">
      		 <label>Enter your name for the leaderboards!
        		 <input type="text" placeholder="Your name goes here. Don't be profane, dawg." />
      		 </label>
     		</div>
+        <div class="medium-2 columns">
+          <button class="post" type="submit">Search</button>
+        </div>
   		</div>
   	</form>
   	<!--****SHARE ON FB????*****-->
-	<a href=".." class="button">Try again?</a>
+	<a href="/" class="button">Try again?</a>
 </div>
 </div>
 </div>

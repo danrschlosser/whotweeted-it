@@ -2,6 +2,35 @@
 {% block title %} {{ super() }} {% endblock %}
 {% block body %}
 
-<p>Some leaderboard sheeeit</p>
+<div class="row">
+	<div class="medium-2 columns">
+		<a class="button" href="/">Home</a>
+	</div>
+	<div class="medium-8 columns">
+		<h1>Leaderboards</h1>
+	</div>
+	<div class="medium-2 columns">
+	</div>
+</div>
+<div class="row">
+	<div class="large-12 columns">
+		<table>
+			<thead>
+				<th>#</th>
+				<th>Username</th>
+				<th>Score</th>
+			</thead>
+			<tbody>
+			{% for person in people %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{person.name}}</td>
+					<td>{{person.score}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
 
 {% endblock %}

@@ -40,7 +40,17 @@ def submit():
 
 @app.route('/leaderboard')
 def leaderboard():
-	return render_template("scores.html")
+	people = get.getHighScores()
+	return render_template("scores.html", people=people)
+
+@app.route('/post/<name>/<score>')
+def post(name, score):
+	person = get.loadPerson(name, score)
+	return "Posted: " +person.name + ", " + person.score
+
+@app.route("/clear")
+def clear():
+	return get.emptyDatabase()
 
 @app.route('/about')
 def about():

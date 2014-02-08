@@ -3,10 +3,7 @@ import google.appengine.api as oauth
 import json
 from twitterAuth import tokens
 import random
-import ast
-import datetime
 from google.appengine.ext import db
-from google.appengine.api import users
 
 
 class Dictionary(db.Model):
@@ -135,7 +132,7 @@ def getQuizData():
     return d
 
 # generate_database('quiz_database.json')
-def make_dictionary_for_database:
+def make_dictionary_for_database():
 
     final_dictionary = dict()
 
@@ -151,15 +148,70 @@ def loadquizindb():
 def loadPerson(name, score):
     p = Person(name = name, score = score)
     p.put()
+    return p
+
+def emptyDatabase():
+    bd = BulkDeleter(Person)
+    bd.map(Person)
+    return "Scores cleared"
 
 def getHighScores():
-    
+
     scoreList = list()
-    for person in Person.all()
+    for person in Person.all():
         scoreList.append({'name' : person.name, 'score' : person.score})
 
-    return sorted(scoreList[:10], key = lambda k: k['score'])
+    return sorted(scoreList[:10], key = lambda k: k['score'])[::-1]
 
+
+class Mapper(object):
+    # Subclasses should replace this with a model class (eg, model.Person).
+    KIND = None
+
+    # Subclasses can replace this with a list of (property, value) tuples to filter by.
+    FILTERS = []
+
+    def map(self, entity):
+        """Updates a single entity.
+
+        Implementers should return a tuple containing two iterables (to_update, to_delete).
+        """
+        return ([], [])
+
+    def get_query(self):
+        """Returns a query over the specified kind, with any appropriate filters applied."""
+        q = self.KIND.all()
+        for prop, value in self.FILTERS:
+            q.filter("%s =" % prop, value)
+        return q
+
+    def run(self, batch_size=100):
+        """Executes the map procedure over all matching entities."""
+        q = self.get_query()
+        entities = q.fetch(batch_size)
+        while entities:
+            to_put = []
+            to_delete = []
+            for entity in entities:
+                map_updates, map_deletes = self.map(entity)
+                to_put.extend(map_updates)
+                to_delete.extend(map_deletes)
+            if to_put:
+                db.put(to_put)
+            if to_delete:
+                db.delete(to_delete)
+            q.with_cursor(q.cursor())
+            entities = q.fetch(batch_size)
+
+
+class BulkDeleter(Mapper):
+    def __init__(self, kind, filters=None):
+        self.KIND = kind
+        if filters:
+          self.FILTERS = filters
+
+    def map(self, entity):
+        return ([], [entity])
 
 #generate_database('quiz_database.json')
 
