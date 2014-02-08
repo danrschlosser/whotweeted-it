@@ -9,10 +9,13 @@ from google.appengine.ext import db
 from google.appengine.api import users
 
 
-class Dictionary():
+class Dictionary(db.Model):
   name = db.StringProperty(required=True)
   data = db.StringProperty(required=True)
 
+class Person(db.Model):
+    name = db.StringProperty(required=True)
+    score = db.StringProperty(required=True)
 
 userslist = ['katyperry', 'justinbieber', 'BarackObama', 'ladygaga', 'taylorswift13', 'britneyspears', 'rihanna', 'jtimberlake', 'JLo', 'TheEllenShow', 'Cristiano', 'shakira', 'Oprah', 'Pink', 'ddlovato', 'OfficialAdele', 'Harry_Styles', 'KimKarsashian', 'aliciakeys', 'KAKA', 'selenagomez', 'BrunoMars', 'onedirection', 'NICKIMINAJ', 'NIALLOFFICIAL', 'Eminem', 'MileyCyrus', 'pitbull', 'aplusk', 'Real_Liam_Payne', 'LilTunechi', 'Louis_Tomlinson', 'MariahCarey', 'BillGates', 'AvrilLavigne', 'Drake', 'davidguetta', 'chrisbrown', 'beyonce', 'ArianaGrande', 'ParisHilton', 'wizkhalifa', 'RyanSeacrest', 'jimcarrey', 'emwatson', 'zaynmalik', 'KingJames', 'xtina', 'jimmyfallon', 'iamwill', 'ashleytisdale', 'snoopdogg', 'tyrabanks', 'fcbarcelona', 'alejandrosanz', 'charliesheen', 'kourtneykardash', 'kanyewest','conanobrien', 'ricky_martin', 'kevinhart4real', 'carlyraejepsen', 'neymarjr', 'iamdiddy', 'kelly_clarkson', 'simoncowell', 'danieltosh','khloekardashian', 'usher', 'leodicaprio', 'juanes', 'edsheeran', 'dalailama', 'shaq', 'lmfao', 'big_ben_clock', 'coffee_dad', 'NotAPoliceman', 'The_HelenKeller', 'ElBloombito']
 get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
@@ -140,11 +143,25 @@ def make_dictionary_for_database:
         final_dictionary.update(get_tweets(user))
     return final_dictionary
 
-def loadquizindb(db.Model):
+def loadquizindb():
     q = Dictionary(name = "quiz1", data = make_dictionary_for_database())
 
     q.put()
+
+def loadPerson(name, score):
+    p = Person(name = name, score = score)
+    p.put()
+
+def getHighScores():
     
+    scoreList = list()
+    for person in Person.all()
+        scoreList.append({'name' : person.name, 'score' : person.score})
+
+    return sorted(scoreList[:10], key = lambda k: k['score'])
+
+
+#generate_database('quiz_database.json')
 
 #getQuizData()
 
