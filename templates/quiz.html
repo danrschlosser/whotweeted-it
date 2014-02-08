@@ -14,7 +14,7 @@
     </ul>
   </section>
 </nav>
-	
+
 	<div class="row"><div class="panel tweet">
  		<p>{{data.tweet}}</p>
 	</div>
@@ -25,26 +25,27 @@
 </div>
 
 	<div class="row">
-    {% for candidate in data.candidates if loop.index <= 2 %}
-
-  		<div class="medium-5 
-      {% if loop.index % 2 = 1 %} medium-offset-1 {% endif %}
+    {% for candidate in data.candidates %}
+      {% if loop.index <= 2 %}
+  		<div class="medium-5
+      {% if loop.index % 2 == 1 %} medium-offset-1 {% endif %}
       columns">
-  			<a class="option" href="#" data-candidate-name"{{candidate.display_name}}"><div class="panel candidate">
+  			<a class="option" href="#" data-candidate-name="{{candidate.display_name}}"><div class="panel candidate">
   					 <img src="{{candidate.image}}">
 	  		 		<span>{{candidate.display_name}}</span>
   			 </div>
         </a>
   		</div>
-
+      {% endif %}
  		{% endfor %}
     <div class="medium-1 columns"></div>
 	</div>
 
 	<div class="row">
-    {% for candidate in data.candidates if loop.index > 2 %}
-  		<div class="medium-5 
-      {% if loop.index % 2 = 1 %} medium-offset-1 {% endif %}
+    {% for candidate in data.candidates %}
+      {% if loop.index > 2 %}
+  		<div class="medium-5
+      {% if loop.index % 2 == 1 %} medium-offset-1 {% endif %}
       columns">
   			<a class="option" href="#" data-candidate-name="{{candidate.display_name}}"><div class="panel candidate">
   					<img src="{{candidate.image}}">
@@ -52,7 +53,7 @@
   			</div>
         </a>
   		</div>
- 		
+      {% endif %}
     {% endfor %}
  		<div class="medium-1 columns"></div>
 	</div>
@@ -67,7 +68,7 @@
 
   <footer>
     <span>
-      <a href="/about">About</a> | 
+      <a href="/about">About</a> |
       <a href="/scores">Leaderboard</a>
     </span>
   </footer>

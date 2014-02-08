@@ -2,24 +2,29 @@ $().ready(function() {
 	$(".option").click(function(e) {
 		e.preventDefault();
 		clickedName = $(this).data("candidate-name");
-		$(".option").forEach(function(option) {
-			if (option.data("candidate-name") === correctUser) {
-				option.addClass("correct");
-			}
-			else if (option.data("candidate-name") === clickedName)
-			{
-				option.addClass("wrong");
-			}
-			else
-			{
-				option.addClass("neutral");
-			}
-		})
-		if (clickedName === correctUser) {
-			window.location = "/continue/" + (score + 1);
+		if (clickedName == correctUser) {
+			$(".scorebar").text("Current streak: " + (score +1));
 		}
-		else {
-			window.location = "/you_goofed" + (score);
+		$(".option").each(function() {
+			if ($(this).data("candidate-name") == correctUser) {
+				$(this).addClass("correct");
+			}
+			else if ($(this).data("candidate-name") == clickedName) {
+				$(this).addClass("wrong");
+			}
+			else {
+				$(this).addClass("neutral");
+			}
+		});
+		var leave = function () {
+			if (clickedName == correctUser) {
+				window.location = "/continue/" + (score + 1);
+			}
+			else {
+				window.location = "/donegoofed/" + (score);
+			}
 		}
-	})
-})
+        setTimeout(leave, 1000); // check again in a second
+
+	});
+});
