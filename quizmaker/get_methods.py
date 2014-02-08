@@ -3,6 +3,15 @@ import google.appengine.api as oauth
 import json
 from twitterAuth import tokens
 import random
+import ast
+import datetime
+from google.appengine.ext import db
+from google.appengine.api import users
+
+
+class Dictionary():
+  name = db.StringProperty(required=True)
+  data = db.StringProperty(required=True)
 
 
 userslist = ['katyperry', 'justinbieber', 'BarackObama', 'ladygaga', 'taylorswift13', 'britneyspears', 'rihanna', 'jtimberlake', 'JLo', 'TheEllenShow', 'Cristiano', 'shakira', 'Oprah', 'Pink', 'ddlovato', 'OfficialAdele', 'Harry_Styles', 'KimKarsashian', 'aliciakeys', 'KAKA', 'selenagomez', 'BrunoMars', 'onedirection', 'NICKIMINAJ', 'NIALLOFFICIAL', 'Eminem', 'MileyCyrus', 'pitbull', 'aplusk', 'Real_Liam_Payne', 'LilTunechi', 'Louis_Tomlinson', 'MariahCarey', 'BillGates', 'AvrilLavigne', 'Drake', 'davidguetta', 'chrisbrown', 'beyonce', 'ArianaGrande', 'ParisHilton', 'wizkhalifa', 'RyanSeacrest', 'jimcarrey', 'emwatson', 'zaynmalik', 'KingJames', 'xtina', 'jimmyfallon', 'iamwill', 'ashleytisdale', 'snoopdogg', 'tyrabanks', 'fcbarcelona', 'alejandrosanz', 'charliesheen', 'kourtneykardash', 'kanyewest','conanobrien', 'ricky_martin', 'kevinhart4real', 'carlyraejepsen', 'neymarjr', 'iamdiddy', 'kelly_clarkson', 'simoncowell', 'danieltosh','khloekardashian', 'usher', 'leodicaprio', 'juanes', 'edsheeran', 'dalailama', 'shaq', 'lmfao', 'big_ben_clock', 'coffee_dad', 'NotAPoliceman', 'The_HelenKeller', 'ElBloombito']
@@ -123,6 +132,19 @@ def getQuizData():
     return d
 
 # generate_database('quiz_database.json')
+def make_dictionary_for_database:
+
+    final_dictionary = dict()
+
+    for user in userslist:
+        final_dictionary.update(get_tweets(user))
+    return final_dictionary
+
+def loadquizindb(db.Model):
+    q = Dictionary(name = "quiz1", data = make_dictionary_for_database())
+
+    q.put()
+    
 
 #getQuizData()
 
