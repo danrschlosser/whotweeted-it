@@ -1,0 +1,23 @@
+{% extends "foundation.html" %}
+{% block title %} Dang. | {{ super() }} {% endblock %}
+{% block body %}
+<div class="main">
+<div class="row submit-page">
+	<div class="large-12 columns">
+	<h3>Aw, nuts.</h3>
+	<p>You achieved a streak of {{score}}.</p>
+	<form>
+  		<div class="row">
+    		<div class="large-12 columns">
+     		 <label>Enter your name for the leaderboards!
+       		 <input type="text" placeholder="Your name goes here. Don't be profane, dawg." />
+     		 </label>
+    		</div>
+  		</div>
+  	</form>	
+  	<!--****SHARE ON FB????*****-->
+	<a href=".." class="button">Try again?</a>
+</div>
+</div>
+</div>
+{% endblock %}

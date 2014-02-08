@@ -7,6 +7,10 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+button {
+	font-family: 'Open Sans', sans-serif;
+}
+
 .main {
 	min-height: 100%;
 	position: relative;
@@ -170,7 +174,12 @@ footer a {
 }
 
 .about-page {
-	margin: 40px 50px;
+	padding: 40px 50px;
+}
+
+.go-home {
+	text-align: center;
+	width: 100%;
 }
 
 .large-12 > p {
