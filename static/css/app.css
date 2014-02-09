@@ -7,8 +7,14 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-button {
+button, .button {
 	font-family: 'Open Sans', sans-serif;
+	background: #3560A1;
+	border-radius: 5px
+}
+
+button:hover, .button:hover {
+	background: #34E0AD;
 }
 
 .main {
@@ -153,6 +159,10 @@ footer a {
 	vertical-align: bottom;
 }
 
+a:hover {
+	color: #3560A1;
+}
+
 .bottom-row a:hover {
 	text-decoration: underline;
 	color: #739CFF
@@ -174,11 +184,16 @@ footer a {
 
 	padding: 10px 20px 0px;
 	width: 100%;
-	background-color: #ddd;
+	background-color: rgba(200,235,255,0.6);
 	border-radius: 10px;
 	left: 0;
 	right: 0;
 	line-height: 1.5;
+	color: #3560A1
+}
+
+li > a {
+	color: #000;
 }
 
 .about-page {
