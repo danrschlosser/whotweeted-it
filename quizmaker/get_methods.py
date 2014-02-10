@@ -161,7 +161,7 @@ def getHighScores():
     for person in Person.all():
         scoreList.append({'name' : person.name, 'score' : person.score})
 
-    return sorted(scoreList[:10], key = lambda k: k['score'])[::-1]
+    return sorted(scoreList, key = lambda k: int(k['score']))[::-1][:10]
 
 
 class Mapper(object):

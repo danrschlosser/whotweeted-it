@@ -3,34 +3,36 @@
 {% block body %}
 
 <div class="row">
-	<div class="medium-2 columns">
-		<a class="button" href="/">Home</a>
-	</div>
-	<div class="medium-8 columns">
-		<h1>Leaderboards</h1>
-	</div>
-	<div class="medium-2 columns">
+	<div class="medium-8 medium-centered centered columns">
+		<p class="tester">Leaderboards</p>
 	</div>
 </div>
 <div class="row">
 	<div class="large-12 columns">
-		<table>
-			<thead>
-				<th>#</th>
-				<th>Username</th>
-				<th>Score</th>
-			</thead>
-			<tbody>
-			{% for person in people %}
-				<tr>
-					<td>{{loop.index}}</td>
-					<td>{{person.name}}</td>
-					<td>{{person.score}}</td>
-				</tr>
-			{% endfor %}
-			</tbody>
-		</table>
+		<div class="table-wrapper">
+			<table class="scores">
+				<thead>
+					<th>#</th>
+					<th>Username</th>
+					<th>Score</th>
+				</thead>
+				<tbody>
+				{% for person in people %}
+					<tr>
+						<td>{{loop.index}}</td>
+						<td>{{person.name}}</td>
+						<td>{{person.score}}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
+ <div class="row">
+      <div class="medium-8 medium-centered columns centered">
+        <a href="/" class="button">Try again?</a>
+      </div>
+    </div>
 
 {% endblock %}

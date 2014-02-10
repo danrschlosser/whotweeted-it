@@ -2,14 +2,11 @@ $().ready(function() {
 	$("form").submit(function(e) {
 		e.preventDefault();
 		var val = $("#user_name").val();
-		console.log(val, score);
-		console.log("/post/"+val+"/"+score)
 
 		$.post("/post/"+val+"/"+score, function() {
-			console.log("bye!");
 			var leaderboard = function() {
 				window.location = "/leaderboard";
-			}
+			};
 			setTimeout(leaderboard, 500);
 
 		});

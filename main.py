@@ -15,6 +15,10 @@ app.config["DEBUG"] = True
 def hello():
     return redirect(url_for('quiz', messages=json.dumps({"score": 0})))
 
+@app.route('/favicon.ico')
+def favicon():
+	return redirect(url_for('static', filename='img/favicon.ico'))
+
 @app.route('/quiz')
 def quiz():
 	if request.args["messages"] is None:

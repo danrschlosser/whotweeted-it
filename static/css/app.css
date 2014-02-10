@@ -22,12 +22,30 @@ button:hover, .button:hover {
 	position: relative;
 }
 
+.scores {
+	margin: 1em auto;
+	border: 30px solid rgba(200,235,255,0.6);
+}
+
+.scores tr {
+	height: 2.5em;
+}
+
+.scores td, .scores th {
+	font-size: 2em;
+}
+
 .tester {
 	text-align: center;
 	font-size: 4.5em;
 	top: 20px;
 	font-style: italic;
 	padding-top: 0px;
+}
+
+.achieve {
+	text-align: center;
+	font-size: 2em;
 }
 
 .tweet {
