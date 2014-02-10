@@ -41,3 +41,19 @@ $().ready(function() {
 
 	});
 });
+
+$().sizing-text(function(){
+
+    var $quote = $(".candidate-name");
+    
+    var $numChars = $candidate-name.text().length;
+    
+    if (($numChars >= 1) && ($numChars < 13)) {
+        $candidate-name.css("font-size", "1.4em");
+    }
+    else if (($numChars >= 13) && ($numChars < 15)) {
+        $quote.css("font-size", "1.2em");
+    }
+    else if ($numChars >= 15) {
+        $quote.css("font-size", "1em");
+});
