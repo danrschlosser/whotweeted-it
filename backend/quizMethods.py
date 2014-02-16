@@ -6,10 +6,11 @@ import json
 
 
 
+
 def makeQuiz():
 
     random_numbers = random.sample(range(len(dictionary)), 4)
-
+    
 
     correct_user_name = dictionary[userslist[random_numbers[0]]]['display name']
 

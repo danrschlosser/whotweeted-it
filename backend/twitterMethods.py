@@ -1,7 +1,7 @@
 import json
-import tokens
-
+from twitter import tokens
 import oauth2 as oauth
+import databaseMethods as db
 
 #PUT Dat shit in a secret file or something
 API_key = tokens.API_key
@@ -31,27 +31,38 @@ def getdict(url):
     return {"content": response}
 
 
-def putTweetsInDB(username):
+#loads the tweets database with roughly 20 tweets from the given username
+def putTweetInDatabase(username):
 
-    depth = 30
+    depth = 20
     #number of tweets to add
 
     url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username + "&count=" + str(depth) + "&exclude_replies=true" + "&include_rts=false"
     dictionary = getdict(url)
     listoftweets = dictionary['content']
+    tweets = list()
 
     try:
         display_name = listoftweets[0]['user']['name']
         pic_url = listoftweets[0]['user']['profile_image_url']
+        
+        for tweet in listoftweets:
+          tweets.append(tweet['text'])
 
-    databaseMethods.
+        db.addTweet(username, display_name, tweets, pic_url)
 
     except:
         print(listoftweets)
         print(username)
 
 
+def loadTweetDatabase():
+    with open('userslist.py', 'r') as f:
+        string = f.read()
+        users = eval('[' + string + ']')
+
+    for user in users:
+        putTweetInDatabase(user)
 
 
-
-
+loadTweetDatabase()

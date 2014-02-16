@@ -4,7 +4,6 @@ import json
 from twitter import tokens
 import random
 #from google.appengine.ext import db
-[katyperry, justinbieber, BarakObama, ladygaga, taylorswift13, britneyspears, rihana, jtimberlake, JLo, TheEllenShow, Cristiano, shakira, Oprah, Pink, ddlovato, OfficialAdele, Harry_Styles, aliciakeys, selenagomez, BrunoMars, onedirection, NICKIMINAJ, MileyCyrus, neiltyson, aplusk, LilTunechi, robdelaney, MariahCarey, BillGates, AvrilLavigne, Drake, davidguetta, beyonce, ArianaGrande, wizkhalifa, RyanSeacrest, jimcarrey, emwatson, jimmyfallon, iamwill, snoopdogg, tyrabanks, charliesheen, kanyewest, conanobrien, StephenAtHome, kevinhart4real, carlyraejepsen, iamdiddy, officialjaden, kelly_clarkson, simoncowell, danieltosh, rickygervais, SethMacFarlane, usher, leodicaprio, edsheeran, dalailama, shaq, lmfao]"
 
 
 class Dictionary(db.Model):
@@ -165,62 +164,62 @@ def getHighScores():
     return sorted(scoreList, key = lambda k: int(k['score']))[::-1][:10]
 
 
-class Mapper(object):
-    # Subclasses should replace this with a model class (eg, model.Person).
-    KIND = None
+# class Mapper(object):
+#     # Subclasses should replace this with a model class (eg, model.Person).
+#     KIND = None
 
-    # Subclasses can replace this with a list of (property, value) tuples to filter by.
-    FILTERS = []
+#     # Subclasses can replace this with a list of (property, value) tuples to filter by.
+#     FILTERS = []
 
-    def map(self, entity):
-        """Updates a single entity.
+#     def map(self, entity):
+#         """Updates a single entity.
 
-        Implementers should return a tuple containing two iterables (to_update, to_delete).
-        """
-        return ([], [])
+#         Implementers should return a tuple containing two iterables (to_update, to_delete).
+#         """
+#         return ([], [])
 
-    def get_query(self):
-        """Returns a query over the specified kind, with any appropriate filters applied."""
-        q = self.KIND.all()
-        for prop, value in self.FILTERS:
-            q.filter("%s =" % prop, value)
-        return q
+#     def get_query(self):
+#         """Returns a query over the specified kind, with any appropriate filters applied."""
+#         q = self.KIND.all()
+#         for prop, value in self.FILTERS:
+#             q.filter("%s =" % prop, value)
+#         return q
 
-    def run(self, batch_size=100):
-        """Executes the map procedure over all matching entities."""
-        q = self.get_query()
-        entities = q.fetch(batch_size)
-        while entities:
-            to_put = []
-            to_delete = []
-            for entity in entities:
-                map_updates, map_deletes = self.map(entity)
-                to_put.extend(map_updates)
-                to_delete.extend(map_deletes)
-            if to_put:
-                db.put(to_put)
-            if to_delete:
-                db.delete(to_delete)
-            q.with_cursor(q.cursor())
-            entities = q.fetch(batch_size)
+#     def run(self, batch_size=100):
+#         """Executes the map procedure over all matching entities."""
+#         q = self.get_query()
+#         entities = q.fetch(batch_size)
+#         while entities:
+#             to_put = []
+#             to_delete = []
+#             for entity in entities:
+#                 map_updates, map_deletes = self.map(entity)
+#                 to_put.extend(map_updates)
+#                 to_delete.extend(map_deletes)
+#             if to_put:
+#                 db.put(to_put)
+#             if to_delete:
+#                 db.delete(to_delete)
+#             q.with_cursor(q.cursor())
+#             entities = q.fetch(batch_size)
 
 
-class BulkDeleter(Mapper):
-    def __init__(self, kind, filters=None):
-        self.KIND = kind
-        if filters:
-          self.FILTERS = filters
+# class BulkDeleter(Mapper):
+#     def __init__(self, kind, filters=None):
+#         self.KIND = kind
+#         if filters:
+#           self.FILTERS = filters
 
-    def map(self, entity):
-        return ([], [entity])
+#     def map(self, entity):
+#         return ([], [entity])
 
-get_tweets("justinbieber")
+# get_tweets("justinbieber")
 
-#generate_database('quiz_database.json')
+# #generate_database('quiz_database.json')
 
-#getQuizData()
+# #getQuizData()
 
-#for users in userslist:
-#   print users + ":  " + get_random_tweet(str(users)).encode('utf-8')
+# #for users in userslist:
+# #   print users + ":  " + get_random_tweet(str(users)).encode('utf-8')
 
 

@@ -1,5 +1,7 @@
 from pymongo import MongoClient
+import pymongo
 import datetime
+
 
 
 client = MongoClient()
@@ -10,10 +12,10 @@ db = client.whoTweetedIt
 #------------------------------------------------------------------------------#
 
 #adds a tweet with the given properties and returns the id number of the database entry
-def addTweet(username, displayname, tweets):
+def addTweet(username, displayname, tweets, picurl):
 	date = datetime.datetime.utcnow()
 
-	tweet = {"username" : username, "displayname" : displayname,"tweets" : tweets,"date added" : date}
+	tweet = {"username" : username, "displayname" : displayname,"tweets" : tweets, "picUrl" : picurl, "date added" : date}
 
 	return db.tweets.insert(tweet)
 
@@ -29,8 +31,6 @@ def getTweetDbSize():
 def wipeTweets():
 	db.tweets.remove()
 
-#wipes tweets older than 1 week:
-def wipeOneWeek():
 
 
 #Score Database
@@ -43,6 +43,22 @@ def addPerson(name, score):
 	person = {"name" : name , "score" : score}
 	return db.scores.insert(person)
 
+#gets size of score database
+def getScoreDbSize():
+	return db.scores.count()
+
+#returns 10 top scoring people
+def getHighScores():
+	tempscoreList =  list()
+	for x in range(0,9):
+		try:
+			tempscoreList.append(db.scores.find()[0:(getScoreDbSize() - 1)].sort(u'score' , -1)[x])
+		except:
+			print "Index out of bounds. Need more than 10 in score list"
+
+	return tempscoreList
 
 def wipeScores():
 	db.scores.remove()
+
+print getTweet(239)
