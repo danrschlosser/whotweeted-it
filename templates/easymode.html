@@ -1,4 +1,6 @@
-{% extends "foundation.html" %}
+<p>um</p>
+
+<!--{% extends "foundation.html" %}
 {% block title %} {{ super() }} {% endblock %}
 {% block body %}
 <script type="text/javascript">
@@ -8,24 +10,18 @@
 
 <div class="main">
   <div class="working_title">
-    <p class="main-title">Who tweeted it?</p>
+    <p class="tester">Who tweeted it?</p>
   </div>
 <section class="top-bar-section">
-    <!-- Right Nav Section -->
+    <!-- Right Nav Section 
     <ul class="center">
     </ul>
   </section>
 </nav>
 
- <div class="row"><div class="panel tweet">
-    <p>{{data.tweet}}</p>
-  </div>
-
- <!-- <div class="row"><div class="panel tweet-with-image medium-7 medium-offset-1">
-    <p>{{data.tweet}}</p></div>
-    <div class="tweet-pic medium-3"><img src="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg"></img>
-  </div></div>
--->
+	<div class="row"><div class="panel tweet">
+ 		<p>{{data.tweet}}</p>
+	</div>
 
 	<div class="buffer-v3"></div>
 
@@ -37,7 +33,7 @@
       columns">
   			<a class="option" href="#" data-candidate-name="{{candidate.display_name}}"><div class="panel candidate">
   					 <img src="{{candidate.image}}">
-	  		 		<span class="candidate-name">{{candidate.display_name}}</span>
+	  		 		<span>{{candidate.display_name}}</span>
   			 </div>
         </a>
   		</div>
@@ -54,7 +50,7 @@
       columns">
   			<a class="option" href="#" data-candidate-name="{{candidate.display_name}}"><div class="panel candidate">
   					<img src="{{candidate.image}}">
-	  				<span class="candidate-name">{{candidate.display_name}}</span>
+	  				<span>{{candidate.display_name}}</span>
   			</div>
         </a>
   		</div>
@@ -74,9 +70,10 @@
   <footer>
     <span>
       <a href="/about">About</a> |
-      <a href="/leaderboard">Leaderboard</a>
+      <a href="/scores">Leaderboard</a> |
+      <a href="/">Back to Regular Mode</a>
     </span>
   </footer>
+  </div>
 </div>
-</div>
-{% endblock %}
+{% endblock %}-->

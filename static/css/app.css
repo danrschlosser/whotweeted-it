@@ -14,7 +14,14 @@ button, .button {
 }
 
 button:hover, .button:hover {
-	background: #7DDEE0;
+	background: #628FC9;
+}
+
+.tweet-pic {
+	max-width: 100px;
+	max-height: 100px;
+	border-radius: 5px;
+	vertical-align: middle;
 }
 
 .main {
@@ -33,13 +40,22 @@ button:hover, .button:hover {
 
 .scores td, .scores th {
 	font-size: 2em;
+	line-height: 1.1em;
 }
 
-.tester {
+.generic-title {
 	text-align: center;
 	font-size: 4.5em;
 	top: 20px;
 	font-style: italic;
+	padding-top: 0px;
+}
+
+.main-title {
+	font-family: 'Lily Script One', cursive;
+	text-align: center;
+	font-size: 4.5em;
+	top: 10px;
 	padding-top: 0px;
 }
 
@@ -187,15 +203,15 @@ footer a:hover {
 }
 
 .buffer {
-	height: 40px;
+	height: 8vh;
 }
 
 .buffer-v2 {
-	height: 28px;
+	height: 3vh;
 }
 
 .buffer-v3 {
-	height: 40px;
+	height: 4vh;
 }
 
 .about-text {
