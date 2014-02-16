@@ -1,6 +1,9 @@
 """ main.py is the top level script."""
 
-from quizmaker import get_methods as get
+from backend import databaseMethods as db
+from backend import twitterMethods as twit
+from backend import quizMethods as quiz
+from backend import userslist
 
 #get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
 
@@ -11,6 +14,9 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
 
 @app.route('/')
 def hello():
@@ -23,10 +29,10 @@ def favicon():
 @app.route('/quiz')
 def quiz():
 	if request.args["messages"] is None:
-	    return render_template("quiz.html", data=get.getQuizData(), score=0)
+	    return render_template("quiz.html", data=quiz.makeQuiz(), score=0)
 	else:
 		messages = request.args['messages']
-		data = get.getQuizData()
+		data = quiz.makeQuiz()
 		print data
 		return render_template("quiz.html", data=data, score=json.loads(messages)["score"])
 
@@ -45,7 +51,7 @@ def submit():
 
 @app.route('/leaderboard')
 def leaderboard():
-	people = get.getHighScores()
+	people = db.getHighScores()
 	return render_template("scores.html", people=people)
 
 @app.route('/post/<name>/<score>', methods=["GET", "POST"])
@@ -54,21 +60,21 @@ def post(name, score):
 	person = get.loadPerson(name, score)
 	return "Posted: " +person.name + ", " + person.score
 
-@app.route("/clear")
-def clear():
-	return get.emptyDatabase()
+# @app.route("/clear")
+# def clear():
+# 	return get.emptyDatabase()
 
 @app.route('/about')
 def about():
     """Return some friendly info."""
     return render_template("about.html")
 
-def makedict():
-	return jsonify(get.getdict(get_tweet_url))
+# def makedict():
+# 	return jsonify(get.getdict(get_tweet_url))
 
-@app.route('/generate')
-def generate():
-	return get.generate_database("quiz_database.json")
+# @app.route('/generate')
+# def generate():
+# 	return get.generate_database("quiz_database.json")
 
 
 @app.errorhandler(404)

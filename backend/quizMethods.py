@@ -37,6 +37,3 @@ def makeQuiz():
 
     d = {"tweet" : correct_user_tweet, "correctUser" : correct_user_name, "candidates" : final_user_array}
     return d
-
-
-print makeQuiz()

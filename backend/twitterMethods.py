@@ -56,7 +56,7 @@ def putTweetInDatabase(username):
         print(username)
 
 
-def loadTweetDatabase():
+def fillTweetDatabase():
     with open('userslist.py', 'r') as f:
         string = f.read()
         users = eval('[' + string + ']')
@@ -65,4 +65,3 @@ def loadTweetDatabase():
         putTweetInDatabase(user)
 
 
-loadTweetDatabase()
