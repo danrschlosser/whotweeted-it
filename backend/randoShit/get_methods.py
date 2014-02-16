@@ -1,9 +1,9 @@
 from __future__ import print_function
-import google.appengine.api as oauth
+#import google.appengine.api as oauth
 import json
-from twitterAuth import tokens
+from twitter import tokens
 import random
-from google.appengine.ext import db
+#from google.appengine.ext import db
 
 
 class Dictionary(db.Model):
@@ -212,6 +212,8 @@ class BulkDeleter(Mapper):
 
     def map(self, entity):
         return ([], [entity])
+
+get_tweets("justinbieber")
 
 #generate_database('quiz_database.json')
 
