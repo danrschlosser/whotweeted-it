@@ -1,0 +1,1 @@
+#wipe database, fill database, clear all but top 10 high scores

@@ -2,7 +2,8 @@
 
 from quizmaker import get_methods as get
 
-get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
+#get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
+
 # Import the Flask Framework
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 import json

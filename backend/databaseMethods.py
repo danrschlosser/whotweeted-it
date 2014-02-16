@@ -61,4 +61,4 @@ def getHighScores():
 def wipeScores():
 	db.scores.remove()
 
-print getTweet(239)
+
