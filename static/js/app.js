@@ -34,7 +34,12 @@ $().ready(function() {
 				window.location = "/continue/" + (score + 1);
 			}
 			else {
+				if (score == 0) {
+				window.location = "/continue/" + (score);
+				}
+				else {
 				window.location = "/donegoofed/" + (score);
+				}
 			}
 		}
         setTimeout(leave, 500); // check again in a second
