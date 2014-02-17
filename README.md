@@ -1,7 +1,3 @@
-
-whotweeted-it
-=============
-
 #Who Tweeted it?
 
 Have you ever wanted to have fun but didn't know how?
@@ -45,7 +41,7 @@ every so often. For the initial run, one must do this manually:
 In the backend directory: 
 
 ````shell
-      ~$ python chronjobs.py
+      ~$ python chronjobs.py 
 ````
 
 ###4. Run the app!

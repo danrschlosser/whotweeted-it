@@ -15,9 +15,6 @@ app.config["DEBUG"] = True
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0")
-
 @app.route('/')
 def hello():
     return redirect(url_for('quiz', messages=json.dumps({"score": 0})))
@@ -81,3 +78,7 @@ def about():
 def page_not_found(e):
     """Return a custom 404 error."""
     return 'Sorry, Nothing at this URL.', 404
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
