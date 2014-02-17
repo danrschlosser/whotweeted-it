@@ -2,54 +2,23 @@
 whotweeted-it
 =============
 
-Who Tweeted it?
+#Who Tweeted it?
 
-## Run Locally
-1. Install the [App Engine Python SDK](https://developers.google.com/appengine/downloads).
-See the README file for directions. You'll need python 2.7 and [pip 1.4 or later](http://www.pip-installer.org/en/latest/installing.html) installed too.
+Have you ever wanted to have fun but didn't know how?
+Here is the solution:
 
-2. Clone this repo with
+##Installation
 
-   ```
-   git clone https://github.com/danrschlosser/whotweeted-it.git
-   ```
-3. Install dependencies in the project's lib directory.
-   Note: App Engine can only import libraries from inside your project directory.
+1. Install MongoDB:
 
-   ```
-   cd whotweeted-it
-   pip install -r requirements.txt -t lib
-   ```
-4. Run this project locally from the command line:
+On mac, if you have (homebrew)[http://brew.sh/] this can be done with:
 
-   ```
-   dev_appserver.py .
-   ```
+   brew install mongodb
 
-Visit the application [http://localhost:8080](http://localhost:8080)
+On other platforms, follow the instructins [here](http://docs.mongodb.org/manual/installation/)
 
-See [the development server documentation](https://developers.google.com/appengine/docs/python/tools/devserver)
-for options when running dev_appserver.
+To run a mongodb instance, in terminal, type:
 
-## Deploy
-To deploy the application:
+   ~$ mongod
 
-1. Use the [Admin Console](https://appengine.google.com) to create a
-   project/app id. (App id and project id are identical)
-1. [Deploy the
-   application](https://developers.google.com/appengine/docs/python/tools/uploadinganapp) with
-
-   ```
-   appcfg.py -A whotweeted-it --oauth2 update .
-   ```
-1. Congratulations!  Your application is now live at whotweeted-it.appspot.com
-
-### Feedback
-Star this repo if you found it useful. Use the github issue tracker to give
-feedback on this repo.
-
-## Contributing changes
-See [CONTRIB.md](CONTRIB.md)
-
-## Licensing
-See [LICENSE](LICENSE)
+2. 
