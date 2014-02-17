@@ -49,16 +49,23 @@ def getScoreDbSize():
 
 #returns 10 top scoring people
 def getHighScores():
-	tempscoreList =  list()
-	for x in range(0,9):
+	scoreList =  list()
+	for x in range(10):
 		try:
-			tempscoreList.append(db.scores.find()[0:(getScoreDbSize() - 1)].sort(u'score' , -1)[x])
+			scoreList.append(db.scores.find()[0:(getScoreDbSize() - 1)].sort(u'score' , -1)[x])
 		except:
 			print "Index out of bounds. Need more than 10 in score list"
 
-	return tempscoreList
+	return scoreList
 
 def wipeScores():
 	db.scores.remove()
 
+#wipe all but the top 10 high scores
+def purgeScores():
+	if getScoreDbSize() > 10:
+		tempScoreList = getHighScores()
+		wipeScores()
+		for x in range(10):
+			addPerson(tempScoreList[x]['name'], tempScoreList[x]['score'])
 
