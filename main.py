@@ -2,7 +2,7 @@
 
 from backend import databaseMethods as db
 from backend import twitterMethods as twit
-from backend import quizMethods as quiz
+from backend import quizMethods as q
 from backend import userslist
 
 #get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
@@ -26,10 +26,10 @@ def favicon():
 @app.route('/quiz')
 def quiz():
 	if request.args["messages"] is None:
-	    return render_template("quiz.html", data=quiz.makeQuiz(), score=0)
+	    return render_template("quiz.html", data=q.makeQuiz(), score=0)
 	else:
 		messages = request.args['messages']
-		data = quiz.makeQuiz()
+		data = q.makeQuiz()
 		print data
 		return render_template("quiz.html", data=data, score=json.loads(messages)["score"])
 
@@ -82,3 +82,4 @@ def page_not_found(e):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
+

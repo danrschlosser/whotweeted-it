@@ -14,7 +14,7 @@ On mac, if you have [homebrew](http://brew.sh/) this can be done with:
    ~$ brew install mongodb
 ````
 
-On other platforms, follow the instructins [here](http://docs.mongodb.org/manual/installation/)
+On other platforms, follow the instructions [here](http://docs.mongodb.org/manual/installation/)
 
 To run a mongodb instance, in terminal, type:
 
@@ -41,7 +41,7 @@ every so often. For the initial run, one must do this manually:
 In the backend directory: 
 
 ````shell
-      ~$ python chronjobs.py 
+      ~$ python chronJobs.py 
 ````
 
 ###4. Run the app!
