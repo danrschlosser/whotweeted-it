@@ -1,14 +1,12 @@
 """ main.py is the top level script."""
 
 from backend import databaseMethods as db
-from backend import twitterMethods as twit
 from backend import quizMethods as q
-from backend import userslist
 
 #get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
 
 # Import the Flask Framework
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 import json
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -54,7 +52,7 @@ def leaderboard():
 @app.route('/post/<name>/<score>', methods=["GET", "POST"])
 def post(name, score):
 	print "posting:" + name + score
-	person = db.addPerson(name, score)
+	db.addPerson(name, score)
 	return "Posted: " + name + ", " + score
 
 # @app.route("/clear")

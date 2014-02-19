@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-import pymongo
 import datetime
 
 
@@ -8,7 +7,7 @@ client = MongoClient()
 db = client.whoTweetedIt
 
 
-#Twitter Database Stuff 
+#Twitter Database Stuff
 #------------------------------------------------------------------------------#
 
 #adds a tweet with the given properties and returns the id number of the database entry
@@ -40,7 +39,7 @@ def wipeTweets():
 
 #adds a person with the given properties and returns the id number of the database entry
 def addPerson(name, score):
-	person = {"name" : name , "score" : score}
+	person = {"name" : name , "score" : int(score)}
 	return db.scores.insert(person)
 
 #gets size of score database
@@ -49,17 +48,7 @@ def getScoreDbSize():
 
 #returns 10 top scoring people
 def getHighScores():
-	scoreList =  list()
-	
-	if getScoreDbSize() > 9:
-		for x in range(10):
-				scoreList.append(db.scores.find()[0:(getScoreDbSize() - 1)].sort(u'score' , -1)[x])
-	else:
-		addFillerPeople()
-		for x in range(10):
-				scoreList.append(db.scores.find()[0:(getScoreDbSize() - 1)].sort(u'score' , -1)[x])
-
-	return scoreList
+	return sorted(list(db.scores.find()[:]), key=lambda k: k["score"])[::-1][:10]
 
 def wipeScores():
 	db.scores.remove()
@@ -76,15 +65,17 @@ def purgeScores():
 def addFillerPeople():
 	addPerson('Stringer Bell', 1)
 	addPerson('Jimmy McNulty', 1)
-	addPerson('Bunk Moreland', 1)
+	addPerson('Bunk Moreland', 7)
 	addPerson('Marlo Stanfield', 1)
 	addPerson('Omar Little', 2)
 	addPerson('Avon Barksdale', 1)
 	addPerson('Frank Sobotka', 1)
-	addPerson('Cedric Daniels', 1)
+	addPerson('Cedric Daniels', 3)
 	addPerson('Shakima Greggs', 1)
 	addPerson('Bubbles', 1)
 
-wipeScores()
+# wipeScores()
+# addFillerPeople()
+
 
 

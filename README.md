@@ -35,13 +35,13 @@ Navigate to the whotweeted-it directory and with [pip](http://pip.readthedocs.or
 ###3. Populate the database:
 The app works by pulling tweets from the twitter API into a mongodb database. 
 This database has to be populated for the app to work. In general, a server
-deployment of the app would run a chron job that updates the tweet database
+deployment of the app would run a cron job that updates the tweet database
 every so often. For the initial run, one must do this manually:
 
 In the backend directory: 
 
 ````shell
-      ~$ python chronJobs.py 
+      ~$ python cronJobs.py 
 ````
 
 ###4. Run the app!

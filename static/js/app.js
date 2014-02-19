@@ -34,14 +34,14 @@ $().ready(function() {
 				window.location = "/continue/" + (score + 1);
 			}
 			else {
-				if (score == 0) {
+				if (score === 0) {
 				window.location = "/continue/" + (score);
 				}
 				else {
 				window.location = "/donegoofed/" + (score);
 				}
 			}
-		}
+		};
         setTimeout(leave, 500); // check again in a second
 
 	});
@@ -49,9 +49,9 @@ $().ready(function() {
 
 
     var $quote = $(".candidate-name");
-    
+
     var $numChars = $quote.text().length;
-    
+
     if (($numChars >= 1) && ($numChars < 13)) {
         $quote.css("font-size", "1.4em");
     }
