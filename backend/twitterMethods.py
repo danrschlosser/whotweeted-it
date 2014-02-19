@@ -35,7 +35,7 @@ def getdict(url):
 #loads the tweets database with roughly 20 tweets from the given username
 def putTweetInDatabase(username):
 
-    depth = 30
+    depth = 50
     #number of tweets to add
 
     url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username + "&count=" + str(depth) + "&exclude_replies=true" + "&include_rts=false"

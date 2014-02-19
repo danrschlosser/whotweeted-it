@@ -50,11 +50,14 @@ def getScoreDbSize():
 #returns 10 top scoring people
 def getHighScores():
 	scoreList =  list()
-	for x in range(10):
-		try:
-			scoreList.append(db.scores.find()[0:(getScoreDbSize() - 1)].sort(u'score' , -1)[x])
-		except:
-			print "Index out of bounds. Need more than 10 in score list"
+	
+	if getScoreDbSize() > 9:
+		for x in range(10):
+				scoreList.append(db.scores.find()[0:(getScoreDbSize() - 1)].sort(u'score' , -1)[x])
+	else:
+		addFillerPeople()
+		for x in range(10):
+				scoreList.append(db.scores.find()[0:(getScoreDbSize() - 1)].sort(u'score' , -1)[x])
 
 	return scoreList
 
@@ -70,20 +73,18 @@ def purgeScores():
 			addPerson(tempScoreList[x]['name'], tempScoreList[x]['score'])
 
 
-#wipeScores()
+def addFillerPeople():
+	addPerson('Stringer Bell', 1)
+	addPerson('Jimmy McNulty', 1)
+	addPerson('Bunk Moreland', 1)
+	addPerson('Marlo Stanfield', 1)
+	addPerson('Omar Little', 2)
+	addPerson('Avon Barksdale', 1)
+	addPerson('Frank Sobotka', 1)
+	addPerson('Cedric Daniels', 1)
+	addPerson('Shakima Greggs', 1)
+	addPerson('Bubbles', 1)
 
-# addPerson('jon', 7)
-# addPerson('ben', 10)
-# addPerson('kyle', 2)
-# addPerson('joe', 7)
-# addPerson('bike',1)
-# addPerson('dan', 9)
-# addPerson('evan', 8)
-# addPerson('dyke', 5)
-# addPerson('clondike', 11)
-# addPerson('boko', 1)
-# addPerson('dumi', 0)
-
-print getHighScores()
+wipeScores()
 
 
