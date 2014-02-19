@@ -2,6 +2,7 @@ import json
 from twitter import tokens
 import oauth2 as oauth
 import databaseMethods as db
+import tweetFilters as filters
 
 #PUT Dat shit in a secret file or something
 API_key = tokens.API_key
@@ -47,7 +48,7 @@ def putTweetInDatabase(username):
         pic_url = listoftweets[0]['user']['profile_image_url']
         
         for tweet in listoftweets:
-          tweets.append(tweet['text'])
+            tweets.append(filters.filter(tweet['text']))
 
         db.addTweet(username, display_name, tweets, pic_url)
 

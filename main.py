@@ -54,8 +54,8 @@ def leaderboard():
 @app.route('/post/<name>/<score>', methods=["GET", "POST"])
 def post(name, score):
 	print "posting:" + name + score
-	person = get.loadPerson(name, score)
-	return "Posted: " +person.name + ", " + person.score
+	person = db.addPerson(name, score)
+	return "Posted: " + name + ", " + score
 
 # @app.route("/clear")
 # def clear():

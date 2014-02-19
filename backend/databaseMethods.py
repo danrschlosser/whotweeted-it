@@ -69,3 +69,21 @@ def purgeScores():
 		for x in range(10):
 			addPerson(tempScoreList[x]['name'], tempScoreList[x]['score'])
 
+
+#wipeScores()
+
+# addPerson('jon', 7)
+# addPerson('ben', 10)
+# addPerson('kyle', 2)
+# addPerson('joe', 7)
+# addPerson('bike',1)
+# addPerson('dan', 9)
+# addPerson('evan', 8)
+# addPerson('dyke', 5)
+# addPerson('clondike', 11)
+# addPerson('boko', 1)
+# addPerson('dumi', 0)
+
+print getHighScores()
+
+
