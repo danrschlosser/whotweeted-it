@@ -63,3 +63,30 @@ $().ready(function() {
 	}
 });
 
+function sharefacebook () {
+	FB.login(function (res) {
+        //problem with facebook login
+        if(!res.authResponse) {
+          alert('problem with facebook login. Please try again or use an email.');
+        }
+        //post to wall
+        FB.ui({
+          method: 'feed',
+          name: 'Who Tweeted It',
+          link: 'whotweeted.it',
+          picture: 'http://www.earthtimes.org/newsimage/environmental-impact-disposal-waste-large-scale-pig-production.jpg',
+          caption: 'Who Tweeted It',
+          description: "I got a score of " + score + ". Can you beat me?"
+        },
+        function(response) {
+          if (response && response.post_id) {
+				window.location = "/leaderboard";
+          } else {
+            var leaderboard = function() {
+				window.location = "/leaderboard";
+			};
+          }
+        });
+      }, {scope: 'publish_actions'});
+}
+
