@@ -43,6 +43,7 @@ button:hover, .button:hover {
 	padding-top: 1rem;
 	margin-bottom: 0rem;
 	line-height: 4.5rem;
+	color: #007;
 }
 
 .main-title {
@@ -51,6 +52,7 @@ button:hover, .button:hover {
 	line-height: 4.5rem;
 	font-size: 6.5rem;
 	padding-top: 2rem;
+	color: #007;
 }
 
 .collapse {
@@ -198,7 +200,7 @@ footer {
 
 footer span, span > a{
 	padding: 0.5rem;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	color: #3560A1;
 	text-align: center;
 	text-decoration: none;
