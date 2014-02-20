@@ -28,7 +28,7 @@ def quiz():
 	else:
 		messages = request.args['messages']
 		data = q.makeQuiz()
-		print data
+		#print data
 		return render_template("quiz.html", data=data, score=json.loads(messages)["score"])
 
 @app.route('/continue/<score>')
