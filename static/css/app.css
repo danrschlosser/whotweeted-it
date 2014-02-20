@@ -234,16 +234,22 @@ footer a:hover {
 	border-radius: 10px;
 	left: 0;
 	right: 0;
-	line-height: 1.5;
+	line-height: 1.5rem;
 	color: #3560A1;
+	font-size: 1.3rem;
 }
 
-li > a {
+.about-text > p {
+	line-height: 2rem;
+	font-size: 1.3rem;
+}
+
+.about-text-p > a, .visionary > a {
 	color: #000;
 }
 
-li > a.hover {
-	color: #3560A1 !important;
+.about-text-p > a:hover, .visionary > a:hover {
+	color: #3560A1;
 }
 
 .about-page {
@@ -259,6 +265,13 @@ li > a.hover {
 	text-align: center;
 }
 
+.visionaries > div{
+	padding: 0 3rem 0;
+	text-align: center;
+	line-height: 2rem;
+	font-size: 1.2rem;
+}
+
 .visionaries {
-	padding: 0 200px 0;
+	padding-bottom: 2rem;
 }
