@@ -77,23 +77,14 @@ button:hover, .button:hover {
 }
 
 .tweet {
-	height: 30%;
-	margin-left: 20%;
-	margin-right: 20%;
+	max-width: 40rem;
+	width: 95%;
+	margin: 0 auto;
 	background-color: rgba(200,235,255,0.6);
 	text-align: center;
 	border-radius: 1rem;
 	border-color:rgba(0,0,0,0);
 }
-
-.tweet-with-image > p {
-	font-size: 1.2rem;
-	float: right;
-	width: 45%;
-	display: inline-block;
-	position: relative;
-}
-
 
 .centered {
 	text-align: center;
@@ -167,18 +158,19 @@ button:hover, .button:hover {
 	position: center;
 }
 
-.row-score p {
-	font-size: 2rem;
+.row-score > p {
+	font-size: 1.5rem;
 	font-weight: 700;
 	text-align: center;
 	color: #3E7F68;
+	line-height: 1rem;
 }
 
 .row-score{
 	text-align: center;
 	left: 0;
 	right: 0;
-	bottom: 1rem;
+	padding-top: 1rem;
 }
 
 .row.collapse > .column, .row.collapse > .columns {
@@ -276,4 +268,28 @@ footer a:hover {
 
 .visionaries {
 	padding-bottom: 2rem;
+}
+
+.facebook-poster {
+	padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 480px) {
+	html {
+		font-size: 12px;
+	}
+
+	.main-title {
+		font-size: 2.5rem;
+		line-height: 0.5rem;
+	}
+
+	.candidate {
+		width: 95%;
+		margin: 0 auto 1.25rem;
+	}
+
+	.facebook-poster {
+		padding-bottom: 2rem;
+	}
 }
