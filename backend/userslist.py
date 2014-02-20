@@ -42,7 +42,6 @@
 "tyrabanks",
 "charliesheen",
 "kanyewest",
-"conanobrien",
 "StephenAtHome",
 "kevinhart4real",
 "carlyraejepsen",

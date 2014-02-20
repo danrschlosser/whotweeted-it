@@ -50,6 +50,9 @@ def getScoreDbSize():
 def getHighScores():
 	return sorted(list(db.scores.find()[:]), key=lambda k: k["score"])[::-1][:10]
 
+def isWorthy():
+	return getHighScores()[9]['score']
+
 def wipeScores():
 	db.scores.remove()
 
@@ -74,8 +77,8 @@ def addFillerPeople():
 	addPerson('Shakima Greggs', 1)
 	addPerson('Bubbles', 1)
 
-# wipeScores()
-# addFillerPeople()
+
+
 
 
 

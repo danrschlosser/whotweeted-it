@@ -49,6 +49,10 @@ def leaderboard():
 	people = db.getHighScores()
 	return render_template("scores.html", people=people)
 
+@app.route('/isworthy')
+def isWorthy():
+	return db.isWorthy()
+
 @app.route('/post/<name>/<score>', methods=["GET", "POST"])
 def post(name, score):
 	print "posting:" + name + score
