@@ -70,6 +70,13 @@ function sharefacebook () {
           alert('problem with facebook login. Please try again or use an email.');
         }
         //post to wall
+        
+        //get data about person
+        FB.api('/me', function (res) {
+
+res.first_name
+res.last_name
+
         FB.ui({
           method: 'feed',
           name: 'Who Tweeted It',
@@ -88,5 +95,13 @@ function sharefacebook () {
           }
         });
       }, {scope: 'publish_actions'});
+
+
+          
+      });
+        
+
+
+        
 }
 
