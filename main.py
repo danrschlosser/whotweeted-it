@@ -1,5 +1,10 @@
 """ main.py is the top level script."""
 
+#Needed for gunicorn
+#############################################
+from werkzeug.contrib.fixers import ProxyFix
+#############################################
+
 from backend import databaseMethods as db
 from backend import quizMethods as q
 from backend.twitter.twitterAuth import tokens
@@ -21,6 +26,7 @@ def hello():
 	session["score"] = 0
 	session["best"] = session.get("best") or 0
 	return redirect(url_for('quiz'))
+
 
 @app.route('/favicon.ico')
 def favicon():
@@ -82,6 +88,9 @@ def about():
 def page_not_found(e):
     """Return a custom 404 error."""
     return 'Sorry, Nothing at this URL.', 404
+
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
