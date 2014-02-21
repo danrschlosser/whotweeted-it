@@ -103,7 +103,7 @@ def easymode():
 	session["easy_best"] = session.get("easy_best") or 0
 	session["easy_gameover"] = False
 	
-	data = q.makeQuiz()
+	data = q.makeEasyQuiz()
 	if session["easy_score"] is None or session["easy_best"] is None:
 		return render_template("easymode.html", data=data, score=0, best=0)
 	else:
