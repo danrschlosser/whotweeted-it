@@ -31,14 +31,14 @@ $().ready(function() {
 		});
 		var leave = function () {
 			if (clickedName == correctUser) {
-				window.location = "/continue/" + (score + 1);
+				window.location = "/continue/" + (score + 1) + "/" + best;
 			}
 			else {
 				if (score === 0) {
-				window.location = "/continue/" + (score);
+				window.location = "/continue/" + (score + 1) + "/" + best;
 				}
 				else {
-				window.location = "/donegoofed/" + (score);
+				window.location = "/donegoofed";
 				}
 			}
 		};
@@ -70,7 +70,7 @@ function sharefacebook () {
         //   alert('problem with facebook login. Please try again or use an email.');
         // }
         //post to wall
-        
+
         //get data about person
         FB.api('/me', function (res) {
 
@@ -97,11 +97,11 @@ res.last_name
       }, {scope: 'publish_actions'});
 
 
-          
+
       });
-        
 
 
-        
+
+
 }
 

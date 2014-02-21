@@ -2,20 +2,24 @@
 
 from backend import databaseMethods as db
 from backend import quizMethods as q
+from backend.twitter.twitterAuth import tokens
 
 #get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
 
 # Import the Flask Framework
-from flask import Flask, render_template, request, redirect, url_for
-import json
+from flask import Flask, render_template, redirect, url_for, session
 app = Flask(__name__)
 app.config["DEBUG"] = True
+
+app.secret_key = tokens.cookie_secret
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
 @app.route('/')
 def hello():
-    return redirect(url_for('quiz', messages=json.dumps({"score": 0})))
+	session["score"] = 0
+	session["best"] = 0
+	return redirect(url_for('quiz'))
 
 @app.route('/favicon.ico')
 def favicon():
@@ -23,26 +27,30 @@ def favicon():
 
 @app.route('/quiz')
 def quiz():
-	if request.args["messages"] is None:
-	    return render_template("quiz.html", data=q.makeQuiz(), score=0)
+	data = q.makeQuiz()
+	if session["score"] is None or session["best"] is None:
+	    return render_template("quiz.html", data=data, score=0, best=0)
 	else:
-		messages = request.args['messages']
-		data = q.makeQuiz()
-		#print data
-		return render_template("quiz.html", data=data, score=json.loads(messages)["score"])
+		return render_template("quiz.html", data=data, score=session["score"], best=session["score"])
 
-@app.route('/continue/<score>')
-def cont(score):
-	return redirect(url_for('quiz', messages=json.dumps({"score": score})))
+@app.route('/continue/<score>/<best>')
+def cont(score, best):
+	session["score"] = int(score)
+	session["best"] = max(int(score), int(best))
+	return redirect(url_for('quiz'))
 
-@app.route('/donegoofed/<score>')
-def goofed(score):
-	return redirect(url_for('submit', messages=json.dumps({"score": score})))
+@app.route('/donegoofed')
+def goofed():
+	if session["score"] > db.isWorthy():
+		return redirect(url_for('submit'))
+	else:
+		session["best"] = max(session["best"], session["score"])
+		session["score"] = 0
+		return redirect(url_for('quiz'))
 
 @app.route('/submit')
 def submit():
-	messages = request.args['messages']
-	return render_template("submit.html", score=json.loads(messages)["score"])
+	return render_template("submit.html", score=session["score"])
 
 @app.route('/leaderboard')
 def leaderboard():
@@ -59,28 +67,15 @@ def post(name, score):
 	db.addPerson(name, score)
 	return "Posted: " + name + ", " + score
 
-# @app.route("/clear")
-# def clear():
-# 	return get.emptyDatabase()
-
 @app.route('/about')
 def about():
     """Return some friendly info."""
     return render_template("about.html")
 
-# def makedict():
-# 	return jsonify(get.getdict(get_tweet_url))
-
-# @app.route('/generate')
-# def generate():
-# 	return get.generate_database("quiz_database.json")
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     """Return a custom 404 error."""
     return 'Sorry, Nothing at this URL.', 404
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

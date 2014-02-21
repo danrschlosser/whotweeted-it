@@ -3,5 +3,5 @@
 lib/
 !lib/README.md
 .DS_Store
-auth/tokens.py
+*/tokens.py
 
