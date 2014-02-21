@@ -7,17 +7,13 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-easy-main {
+.easy-main {
 	height: 100%;
 	margin: 0;
 	padding: 0;
 	position: relative;
-	background: white url("../img/easymodetile.svg") repeat;
+	background: white url("../img/yaomingsmall.jpg") repeat;
 	font-family: 'Open Sans', sans-serif;
-}
-
-.opaque {
-	background: rgba(0, 0, 4, 0.7);
 }
 
 button, .button {
