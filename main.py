@@ -27,7 +27,6 @@ def quiz():
 	    return render_template("quiz.html", data=q.makeQuiz(), score=0)
 	else:
 		messages = request.args['messages']
-		request.args['messages'] = None
 		data = q.makeQuiz()
 		#print data
 		return render_template("quiz.html", data=data, score=json.loads(messages)["score"])
