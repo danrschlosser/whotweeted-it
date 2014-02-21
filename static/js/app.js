@@ -66,9 +66,9 @@ $().ready(function() {
 function sharefacebook () {
 	FB.login(function (res) {
         //problem with facebook login
-        if(!res.authResponse) {
-          alert('problem with facebook login. Please try again or use an email.');
-        }
+        // if(!res.authResponse) {
+        //   alert('problem with facebook login. Please try again or use an email.');
+        // }
         //post to wall
         
         //get data about person
