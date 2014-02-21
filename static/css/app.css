@@ -7,6 +7,19 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+easy-main {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	background: white url("../img/easymodetile.svg") repeat;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.opaque {
+	background: rgba(0, 0, 4, 0.7);
+}
+
 button, .button {
 	font-family: 'Open Sans', sans-serif;
 	background: #3560A1;
@@ -54,6 +67,7 @@ button:hover, .button:hover {
 	font-size: 6.5rem;
 	padding-top: 2rem;
 	color: #007;
+	text-shadow: .125rem .125rem green;
 }
 
 .collapse {
@@ -312,6 +326,27 @@ button.small, .button.small {
 	max-width: 17rem;
 	max-height: 17rem;
 }
+
+@media only screen and (max-width: 720px) {
+	html {
+		font-size: 13px;
+	}
+
+	.main-title {
+		font-size: 5rem;
+		line-height: 4rem;
+	}
+
+	.candidate {
+		width: 95%;
+		margin: 0 auto 1.25rem;
+	}
+	
+	.facebook-poster {
+		padding-bottom: 2rem;
+	}
+}
+
 
 @media only screen and (max-width: 480px) {
 	html {
