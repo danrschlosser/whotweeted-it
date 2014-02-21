@@ -50,7 +50,7 @@ def leaderboard():
 	people = db.getHighScores()
 	return render_template("scores.html", people=people)
 
-@app.route('/isworthy')
+@app.route('/leaderboardcutoff')
 def isWorthy():
 	return db.isWorthy()
 

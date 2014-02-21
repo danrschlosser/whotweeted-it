@@ -79,11 +79,11 @@ res.last_name
 
         FB.ui({
           method: 'feed',
-          name: 'Who Tweeted It',
+          name: 'Who Tweeted It?',
           link: 'whotweeted.it',
-          picture: 'http://www.earthtimes.org/newsimage/environmental-impact-disposal-waste-large-scale-pig-production.jpg',
-          caption: 'Who Tweeted It',
-          description: "I got a score of " + score + ". Can you beat me?"
+          picture: 'http://i.imgur.com/g8k6vKN.jpg',
+          caption: '   ',
+          description: 'How well do you know your favorite celebrities on Twitter? See if you can beat my high score of ' + score + '!'
         },
         function(response) {
           if (response && response.post_id) {
