@@ -84,6 +84,14 @@ def about():
     """Return some friendly info."""
     return render_template("about.html")
 
+
+@app.route('/easymode')
+def easmode():
+	return render_template('easymode.html')
+
+#@app.route('')
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     """Return a custom 404 error."""
