@@ -158,19 +158,32 @@ button:hover, .button:hover {
 	position: center;
 }
 
-.row-score > p {
+.row-score > span {
 	font-size: 1.5rem;
 	font-weight: 700;
-	text-align: center;
 	color: #3E7F68;
 	line-height: 1rem;
+	display: inline-block;
+	padding-bottom: 0.2rem;
+}
+
+.current, .best {
+	display: inline-block;
+	padding:0 1rem 0;
+}
+
+.current {
+	text-align: right;
+}
+
+.best {
+	text-align: left;
 }
 
 .row-score{
 	text-align: center;
 	left: 0;
 	right: 0;
-	padding-top: 1rem;
 }
 
 .row.collapse > .column, .row.collapse > .columns {
@@ -271,7 +284,7 @@ footer a:hover {
 }
 
 .facebook-poster {
-	padding-bottom: 1rem;
+	padding: 2rem 0 1rem;
 }
 
 @media only screen and (max-width: 480px) {
