@@ -261,7 +261,8 @@ footer a:hover {
 }
 
 .about-page {
-	padding: 3rem 4rem;
+	padding: 3rem;
+	max-width: 50rem; 
 }
 
 .go-home {
@@ -274,7 +275,6 @@ footer a:hover {
 }
 
 .visionaries > div{
-	padding: 0 3rem 0;
 	text-align: center;
 	line-height: 2rem;
 	font-size: 1.2rem;
@@ -327,4 +327,16 @@ button.small, .button.small {
 	.facebook-poster {
 		padding-bottom: 2rem;
 	}
+
+	.about-page	{
+		padding: 3rem 1rem;
+		width: 95%;
+	}
+
+	.scores td, .scores th {
+		font-size: 1.1rem;
+		line-height: 0rem;
+		padding: 0 0.5rem;
+	}
+
 }
