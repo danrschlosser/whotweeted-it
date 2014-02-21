@@ -98,10 +98,12 @@ def about():
 
 @app.route('/easymode')
 def easymode():
+	session["easy_started"] = True
 
-	session["easy_score"] = 0
-	session["easy_best"] = session.get("easy_best") or 0
-	session["easy_gameover"] = False
+	if session.get("easy_started") is None:
+		session["easy_score"] = 0
+		session["easy_best"] = session.get("easy_best") or 0
+		session["easy_gameover"] = False
 	
 	data = q.makeEasyQuiz()
 	if session["easy_score"] is None or session["easy_best"] is None:
@@ -109,6 +111,12 @@ def easymode():
 	else:
 		return render_template("easymode.html", data=data, score=session["easy_score"], best=session["easy_best"])
 
+@app.route('/easycontinue/<score>/<best>')
+def easycont(score, best):
+	if not session["gameover"]:
+		session["easy_score"] = int(score)
+		session["easy_best"] = max(session["best"], session["score"])
+	return redirect(url_for('easymode'))
 
 @app.route('/easyfail')
 def easygoofed():

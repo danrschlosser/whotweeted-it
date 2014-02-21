@@ -41,6 +41,35 @@ $().ready(function() {
 
 	});
 
+	$(".easyoption").click(function(e) {
+		e.preventDefault();
+		clickedName = $(this).data("candidate-name");
+		if (clickedName == correctUser) {
+			$(".scorebar").text("Current streak: " + (score +1));
+		}
+		$(".option").each(function() {
+			if ($(this).data("candidate-name") == correctUser) {
+				$(this).addClass("correct");
+			}
+			else if ($(this).data("candidate-name") == clickedName) {
+				$(this).addClass("wrong");
+			}
+			else {
+				$(this).addClass("neutral");
+			}
+		});
+		var leave = function () {
+			if (clickedName == correctUser) {
+				window.location = "/easycontinue/" + (score + 1) + "/" + best;
+			}
+			else {
+				window.location = "/easyfail";
+			}
+		};
+        setTimeout(leave, 500); // check again in a second
+
+	});
+
 
 
     var $quote = $(".candidate-name");
