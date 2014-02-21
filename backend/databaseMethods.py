@@ -39,7 +39,7 @@ def wipeTweets():
 
 #adds a person with the given properties and returns the id number of the database entry
 def addPerson(name, score):
-	shortname = name[:10]
+	shortname = name[:15]
 	person = {"name" : shortname , "score" : int(score)}
 	return db.scores.insert(person)
 

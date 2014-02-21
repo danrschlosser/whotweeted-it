@@ -7,6 +7,7 @@ from werkzeug.contrib.fixers import ProxyFix
 
 from backend import databaseMethods as db
 from backend import quizMethods as q
+from backend import easymode as easy
 from backend.twitter.twitterAuth import tokens
 
 #get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
@@ -22,6 +23,7 @@ app.secret_key = tokens.cookie_secret
 
 @app.route('/')
 def hello():
+	session["started"] = True
 	session["gameover"] = False
 	session["score"] = 0
 	session["best"] = session.get("best") or 0
@@ -34,9 +36,15 @@ def favicon():
 
 @app.route('/quiz')
 def quiz():
+	if session.get("started") is None:
+		session["started"] = True
+		session["gameover"] = False
+		session["score"] = 0
+		session["best"] = 0
+
 	session["gameover"] = False
 	data = q.makeQuiz()
-	if session["score"] is None or session["best"] is None:
+	if session.get("score") is None or session.get("best") is None:
 		return render_template("quiz.html", data=data, score=0, best=0)
 	else:
 		return render_template("quiz.html", data=data, score=session["score"], best=session["best"])
@@ -85,11 +93,34 @@ def about():
     return render_template("about.html")
 
 
-@app.route('/easymode')
-def easmode():
-	return render_template('easymode.html')
 
-#@app.route('')
+######################___EASYMODE____###################################
+
+@app.route('/easymode')
+def easymode():
+
+	session["easy_score"] = 0
+	session["easy_best"] = session.get("easy_best") or 0
+	session["easy_gameover"] = False
+	
+	data = q.makeQuiz()
+	if session["easy_score"] is None or session["easy_best"] is None:
+		return render_template("easymode.html", data=data, score=0, best=0)
+	else:
+		return render_template("easymode.html", data=data, score=session["easy_score"], best=session["easy_best"])
+
+
+@app.route('/easyfail')
+def easygoofed():
+	session["easy_gameover"] = True
+	session["easy_best"] = max(session["best"], session["score"])
+	session["easy_score"] = 0
+	return redirect(url_for('easymode'))
+
+
+###############################################################
+
+
 
 
 @app.errorhandler(404)
