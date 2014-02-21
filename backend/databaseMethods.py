@@ -52,7 +52,11 @@ def getHighScores():
 	return sorted(list(db.scores.find()[:]), key=lambda k: k["score"])[::-1][:10]
 
 def isWorthy():
-	return getHighScores()[9]['score']
+	if getScoreDbSize() > 9:
+		return getHighScores()[9]['score']
+	else:
+		return 0
+
 
 def wipeScores():
 	db.scores.remove()
