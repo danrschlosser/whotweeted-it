@@ -19,7 +19,7 @@ app.secret_key = tokens.cookie_secret
 def hello():
 	session["gameover"] = False
 	session["score"] = 0
-	session["best"] = session["best"] or 0
+	session["best"] = session.get("best") or 0
 	return redirect(url_for('quiz'))
 
 @app.route('/favicon.ico')
