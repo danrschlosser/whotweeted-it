@@ -34,6 +34,7 @@ button:hover, .button:hover {
 .scores td, .scores th {
 	font-size: 2rem;
 	line-height: 1.1rem;
+	padding: 0 1.5rem;
 }
 
 .generic-title {
@@ -287,13 +288,34 @@ footer a:hover {
 	padding: 2rem 0 1rem;
 }
 
+button.small, .button.small {
+	padding-top: 0.675rem;
+	padding-right: 1.45rem;
+	padding-bottom: 0.73rem;
+	padding-left: 1.45rem;
+	font-size: 1rem;
+}
+
+.doge-div {
+	padding: 3rem 0 1rem;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.doge {
+	border-radius: 1rem;
+	max-width: 17rem;
+	max-height: 17rem;
+}
+
 @media only screen and (max-width: 480px) {
 	html {
 		font-size: 12px;
 	}
 
 	.main-title {
-		font-size: 2.5rem;
+		font-size: 3.5rem;
 		line-height: 0.5rem;
 	}
 
