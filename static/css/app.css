@@ -54,7 +54,10 @@ button:hover, .button:hover {
 	font-size: 6.5rem;
 	padding-top: 2rem;
 	color: #007;
-	text-shadow: .125rem .125rem green;
+}
+
+.opaque > .working_title > .main-title {
+	text-shadow: .125rem .125rem #c5f;
 }
 
 .collapse {
@@ -111,14 +114,13 @@ button:hover, .button:hover {
 	border-color:rgba(0,0,0,0);
 }
 
-
-.opaque > .row > .panel, .opaque > .row > .row > .medium-5 > .option > .panel {
+.opaque > .row > .panel, .opaque > .row > .row > .medium-5 > .easyoption > .candidate {
 	background-color: rgba(200,235,255,0.85);
 	border-radius: 10px;
 	border-color:rgba(0,0,0,0);
 }
 
-.opaque > .row > .row > .medium-5 > .option > .panel:hover {
+.opaque > .row > .row > .medium-5 > .easyoption > .candidate:hover {
 	background-color: rgba(143,100,255,0.85) !important
 }
 
