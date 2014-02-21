@@ -252,11 +252,11 @@ footer a:hover {
 	font-size: 1.3rem;
 }
 
-.about-text-p > a, .visionary > a {
+.about-text-p > a, .visionary > a, .easy-mode-link > a {
 	color: #000;
 }
 
-.about-text-p > a:hover, .visionary > a:hover {
+.about-text-p > a:hover, .visionary > a:hover, .easy-mode-link > a:hover{
 	color: #3560A1;
 }
 
@@ -286,6 +286,10 @@ footer a:hover {
 
 .facebook-poster {
 	padding: 2rem 0 1rem;
+}
+
+.easy-mode-link {
+	width: 95%;
 }
 
 button.small, .button.small {
