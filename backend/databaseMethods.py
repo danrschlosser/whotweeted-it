@@ -31,6 +31,31 @@ def wipeTweets():
 	db.tweets.remove()
 
 
+#Easy Mode Database Stuff
+#------------------------------------------------------------------------------#
+
+#adds a tweet with the given properties and returns the id number of the database entry
+def addEasyTweet(username, displayname, tweets, picurl):
+	date = datetime.datetime.utcnow()
+
+	tweet = {"username" : username, "displayname" : displayname,"tweets" : tweets, "picUrl" : picurl, "date added" : date}
+
+	return db.easytweets.insert(tweet)
+
+#returns a dictionary of style: {"username" : username, "displayname" : displayname,"tweets" : tweets,"date added" : date}
+def getEasyTweet(index):
+	return db.easytweets.find()[index]
+
+#gets size of the tweet database (each document represents one user)
+def getEasyTweetDbSize():
+	return db.easytweets.count()
+
+#wipes the whole tweet database
+def wipeEasyTweets():
+	db.easytweets.remove()
+
+
+
 
 #Score Database
 #------------------------------------------------------------------------------#

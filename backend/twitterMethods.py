@@ -32,6 +32,10 @@ def getdict(url):
     return {"content": response}
 
 
+
+#Standard Mode Database Stuff
+#------------------------------------------------------------------------------#
+
 #loads the tweets database with roughly 20 tweets from the given username
 def putTweetInDatabase(username):
 
@@ -66,3 +70,38 @@ def fillTweetDatabase():
         putTweetInDatabase(user)
 
 
+#Easy Mode Database Stuff
+#------------------------------------------------------------------------------#
+
+#loads the tweets database with roughly 20 tweets from the given username
+def putEasyTweetInDatabase(username):
+
+    depth = 50
+    #number of tweets to add
+
+    url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username + "&count=" + str(depth) + "&exclude_replies=true" + "&include_rts=false"
+    dictionary = getdict(url)
+    listoftweets = dictionary['content']
+    tweets = list()
+
+    try:
+        display_name = listoftweets[0]['user']['name']
+        pic_url = listoftweets[0]['user']['profile_image_url']
+        
+        for tweet in listoftweets:
+            tweets.append(filters.filter(tweet['text']))
+
+        db.addEasyTweet(username, display_name, tweets, pic_url)
+
+    except:
+        print(listoftweets)
+        print(username)
+
+
+def fillEasyTweetDatabase():
+    with open('easymodeusers.py', 'r') as f:
+        string = f.read()
+        users = eval('[' + string + ']')
+
+    for user in users:
+        putEasyTweetInDatabase(user)

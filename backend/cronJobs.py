@@ -9,7 +9,9 @@ def main():
 	db.wipeTweets()
 	twit.fillTweetDatabase()
 	db.purgeScores()
-	print db.getScoreDbSize()
+
+	db.wipeEasyTweets()
+	twit.fillEasyTweetDatabase()
 
 if __name__ == "__main__":
 	main()
