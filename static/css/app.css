@@ -7,15 +7,6 @@ html, body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-.easy-main {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	position: relative;
-	background: white url("../img/yaomingsmall.jpg") repeat;
-	font-family: 'Open Sans', sans-serif;
-}
-
 button, .button {
 	font-family: 'Open Sans', sans-serif;
 	background: #3560A1;
@@ -119,6 +110,18 @@ button:hover, .button:hover {
 	border-radius: 10px;
 	border-color:rgba(0,0,0,0);
 }
+
+
+.opaque > .row > .panel, .opaque > .row > .row > .medium-5 > .option > .panel {
+	background-color: rgba(200,235,255,0.85);
+	border-radius: 10px;
+	border-color:rgba(0,0,0,0);
+}
+
+.row > .row > .medium-5 > .option > .panel:hover {
+	background-color: rgba(220,70,255,0.85) !important
+}
+
 
 .correct .panel, .correct .panel{
 	background-color: rgba(200,240,200,0.6) !important;
@@ -341,6 +344,16 @@ button.small, .button.small {
 	.facebook-poster {
 		padding-bottom: 2rem;
 	}
+}
+
+
+.easy-main {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	background: white url("../img/yaomingsmall.jpg") repeat;
+	font-family: 'Open Sans', sans-serif;
 }
 
 
