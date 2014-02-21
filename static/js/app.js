@@ -34,12 +34,7 @@ $().ready(function() {
 				window.location = "/continue/" + (score + 1) + "/" + best;
 			}
 			else {
-				if (score === 0) {
-				window.location = "/continue/" + (score + 1) + "/" + best;
-				}
-				else {
 				window.location = "/donegoofed";
-				}
 			}
 		};
         setTimeout(leave, 500); // check again in a second

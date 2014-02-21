@@ -17,8 +17,9 @@ app.secret_key = tokens.cookie_secret
 
 @app.route('/')
 def hello():
+	session["gameover"] = False
 	session["score"] = 0
-	session["best"] = 0
+	session["best"] = session["best"] or 0
 	return redirect(url_for('quiz'))
 
 @app.route('/favicon.ico')
@@ -27,20 +28,23 @@ def favicon():
 
 @app.route('/quiz')
 def quiz():
+	session["gameover"] = False
 	data = q.makeQuiz()
 	if session["score"] is None or session["best"] is None:
-	    return render_template("quiz.html", data=data, score=0, best=0)
+		return render_template("quiz.html", data=data, score=0, best=0)
 	else:
-		return render_template("quiz.html", data=data, score=session["score"], best=session["score"])
+		return render_template("quiz.html", data=data, score=session["score"], best=session["best"])
 
 @app.route('/continue/<score>/<best>')
 def cont(score, best):
-	session["score"] = int(score)
-	session["best"] = max(int(score), int(best))
+	if not session["gameover"]:
+		session["score"] = int(score)
+		session["best"] = max(session["best"], session["score"])
 	return redirect(url_for('quiz'))
 
 @app.route('/donegoofed')
 def goofed():
+	session["gameover"] = True
 	if session["score"] > db.isWorthy():
 		return redirect(url_for('submit'))
 	else:
@@ -50,7 +54,9 @@ def goofed():
 
 @app.route('/submit')
 def submit():
-	return render_template("submit.html", score=session["score"])
+	score = session["score"]
+	session["score"] = 0
+	return render_template("submit.html", score=score, best=session["best"])
 
 @app.route('/leaderboard')
 def leaderboard():
