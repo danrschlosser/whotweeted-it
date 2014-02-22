@@ -107,7 +107,7 @@ res.last_name
           link: 'whotweeted.it',
           picture: 'http://i.imgur.com/g8k6vKN.jpg',
           caption: '   ',
-          description: 'How well do you know your favorite celebrities on Twitter? See if you can beat my high score of ' + score + '!'
+          description: 'How well do you know your favorite celebrities on Twitter? See if you can beat my high score of ' + best + '!'
         },
         function(response) {
           if (response && response.post_id) {
