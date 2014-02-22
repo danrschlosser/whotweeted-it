@@ -121,7 +121,7 @@ def easycont(score, best):
 @app.route('/easyfail')
 def easygoofed():
 	session["easy_gameover"] = True
-	session["easy_best"] = max(session["best"], session["score"])
+	session["easy_best"] = max(session["easy_best"], session["easy_score"])
 	session["easy_score"] = 0
 	return redirect(url_for('easymode'))
 
