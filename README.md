@@ -33,6 +33,9 @@ Navigate to the whotweeted-it directory and with [pip](http://pip.readthedocs.or
 ````
 
 ###3. Populate the database:
+
+The first step is to populate the `tokens.py` file in `backend/twitter`, see the README there for more details.
+
 The app works by pulling tweets from the twitter API into a mongodb database. 
 In order to use the app, you will need to register on the Twitter devellper site
 and get unique authentication tokens. This app is registered as an app only, meaning
