@@ -3,5 +3,5 @@
 lib/
 !lib/README.md
 .DS_Store
-*/tokens.py
+backend/twitter/tokens.py
 

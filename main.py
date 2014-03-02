@@ -8,7 +8,7 @@ from werkzeug.contrib.fixers import ProxyFix
 from backend import databaseMethods as db
 from backend import quizMethods as q
 from backend import easymode as easy
-from backend.twitter.twitterAuth import tokens
+from backend.twitter import tokens
 
 #get_tweet_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=mileycyrus&count=3"
 
