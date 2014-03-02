@@ -11,7 +11,7 @@ Installation
 On mac, if you have [homebrew](http://brew.sh/) this can be done with:
 
 ````shell
-   ~$ brew install mongodb
+~$ brew install mongodb
 ````
 
 On other platforms, follow the instructions [here](http://docs.mongodb.org/manual/installation/)
@@ -19,7 +19,7 @@ On other platforms, follow the instructions [here](http://docs.mongodb.org/manua
 To run a mongodb instance, in terminal, type:
 
 ````shell
-      ~$ mongod
+~$ mongod
 ````
 this will have to be running for the app to interact with the database
 
@@ -29,7 +29,7 @@ this will have to be running for the app to interact with the database
 Navigate to the whotweeted-it directory and with [pip](http://pip.readthedocs.org/en/latest/installing.html):
 
 ````shell
-      ~$ pip install -r requirements.txt
+~$ pip install -r requirements.txt
 ````
 
 ###3. Populate the database:
@@ -46,7 +46,7 @@ every so often. For the initial run, one must do this manually:
 In the backend directory: 
 
 ````shell
-      ~$ python cronJobs.py 
+~$ python cronJobs.py 
 ````
 
 ###4. Run the app!
@@ -54,7 +54,7 @@ In the backend directory:
 Back in the whotweeted-it directory:
 
 ````shell
-      ~$ python main.py
+~$ python main.py
 ````
 View the site on http://localhost:5000   !
 
