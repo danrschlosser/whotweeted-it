@@ -1,7 +1,10 @@
-#Who Tweeted it?
+[Who Tweeted it?](http://whotweeted.it)
+=======================================
 
 Have you ever wanted to have fun but didn't know how?
 Here is the solution:
+
+![The Who Tweeted It Website](http://static.schlosser.io/ss/wti/frontpage.png)
 
 Installation
 --------------------
